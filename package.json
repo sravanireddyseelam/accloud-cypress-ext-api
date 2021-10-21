@@ -1,0 +1,16 @@
+{
+  "name": "accloud-ext-api-cypress",
+  "version": "1.0.0",
+  "description": "E2E Ext API Automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Team Penguins",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^8.6.0",
+    "faker": "^5.5.3"
+  }
+}
