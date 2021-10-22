@@ -22,6 +22,7 @@ module.exports = {
     "no-console": ["error"],
     "no-unused-expressions": ["error"],
     "no-undef": ["error"],
+    "prefer-template": "error"
   },
   overrides: [
     {

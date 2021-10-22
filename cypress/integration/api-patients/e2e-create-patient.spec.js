@@ -16,12 +16,12 @@ describe("Create a new patient", () => {
             expect(patientCreationResponse.body).has.property("id");
         }).then((patientCreationResponse) => {
             let patientId = patientCreationResponse.body.id;
-            cy.log("patient_id is " +  patientId);
+            cy.log(`patient_id is ${   patientId}`);
             patientId = patientCreationResponse.body.id;
             // Fetches the newly created patient using GET /clients/{client_id} Ext API
             cy.request({
                 method: "GET",
-                url: "ext/api/v2/patients/clients/"+patientId,
+                url: `ext/api/v2/patients/clients/${patientId}`,
                 auth: {
                     username: Cypress.env("username"),
                     password: Cypress.env("password")
@@ -33,7 +33,7 @@ describe("Create a new patient", () => {
             
             }).then((patientResponse) => {
                 let patientExternalId = patientResponse.body.external_id;
-                cy.log("patient_id is " +  patientExternalId);
+                cy.log(`patient_id is ${   patientExternalId}`);
             }).then((patientResponse) => {
 
                 let patientId = patientResponse.body.id;
@@ -41,7 +41,7 @@ describe("Create a new patient", () => {
                 // Updates the newly created patient using PUT /clients/{client_id} Ext API
                 cy.request({
                     method: "PUT",
-                    url: "ext/api/v2/patients/clients/"+patientId,
+                    url: `ext/api/v2/patients/clients/${patientId}`,
                     auth: {
                         username: Cypress.env("username"),
                         password: Cypress.env("password")

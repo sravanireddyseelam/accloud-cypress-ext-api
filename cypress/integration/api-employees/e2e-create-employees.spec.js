@@ -17,11 +17,11 @@ describe("Create a new employee", () => {
             
         }).then((employeeCreationResponse) => {
             let employeeId = employeeCreationResponse.body.id;
-            cy.log("employee_id is " +  employeeId); 
+            cy.log(`employee_id is ${employeeId}`); 
             // Fetches the newly created employee using GET /employees/{employee_id} Ext API
             cy.api({
                 method: "GET",
-                url: "ext/api/v2/employees/employees/"+ employeeId,
+                url: `ext/api/v2/employees/employees/${ employeeId}`,
                 auth: {
                     username: Cypress.env("username"),
                     password: Cypress.env("password")
@@ -35,7 +35,7 @@ describe("Create a new employee", () => {
             
             }).then((employeeGetResponse) => {
                 let employeeExternalId = employeeGetResponse.body.external_id;
-                cy.log("employee_id is " +  employeeExternalId);
+                cy.log(`employee_id is ${   employeeExternalId}`);
             }).then((employeeGetResponse) => {
 
                 let employeeId = employeeGetResponse.body.id;
@@ -43,7 +43,7 @@ describe("Create a new employee", () => {
                 // Updates the newly created employee using PUT /employees/{employee_id} Ext API
                 cy.api({
                     method: "PUT",
-                    url: "ext/api/v2/employees/employees/"+ employeeId,
+                    url: `ext/api/v2/employees/employees/${ employeeId}`,
                     auth: {
                         username: Cypress.env("username"),
                         password: Cypress.env("password")
