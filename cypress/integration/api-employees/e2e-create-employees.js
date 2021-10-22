@@ -1,5 +1,4 @@
-const createEmployeeFixture = require('../../fixtures/createEmployee.json');
-const updateEmployeeFixture = require('../../fixtures/updateEmployee.json');
+const { employee, externalId, randomID } = require('../../store/store');
 
 describe('Create a new employee', () => {
     it('Creates a new employee', () => {
@@ -12,8 +11,8 @@ describe('Create a new employee', () => {
                 username: Cypress.env('username'),
                 password: Cypress.env('password')
             },
-            body: createEmployeeFixture
-        }).then((employeeCreationResponse) => {
+            body: employee
+        }).then((employeeCreationResponse) =>{
             expect(employeeCreationResponse.status).to.eql(201);
             expect(employeeCreationResponse.body).has.property('id');
             
@@ -51,12 +50,12 @@ describe('Create a new employee', () => {
                         password: Cypress.env('password')
 
                     },
-                    body: updateEmployeeFixture
+                    body: externalId
 
                 }).then((employeeUpdateResponse) => {
                     expect(employeeUpdateResponse.status).to.eql(200);
                     expect(employeeUpdateResponse.body).has.property('id').to.eql(employeeId);
-                    expect(employeeUpdateResponse.body).has.property('external_id').to.eql(updateEmployeeFixture.external_id);
+                    expect(employeeUpdateResponse.body).has.property('external_id').to.eq(Object.values(externalId)[0]);
                 });
             });
         });

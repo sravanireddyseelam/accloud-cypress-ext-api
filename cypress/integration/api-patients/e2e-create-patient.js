@@ -1,5 +1,4 @@
-const createPatientFixture = require('../../fixtures/createPatient.json');
-const updatePatientFixture = require('../../fixtures/updatePatient.json');
+const { externalId, patient } = require('../../store/store');
 
 describe('Create a new patient', () => {
     it('Creates a new patient', () => {
@@ -12,7 +11,7 @@ describe('Create a new patient', () => {
                 username: Cypress.env('username'),
                 password: Cypress.env('password')
             },
-            body: createPatientFixture 
+            body: patient 
         }).then((patientCreationResponse) => {
             expect(patientCreationResponse.status).to.eql(201);
             expect(patientCreationResponse.body).has.property('id');
@@ -49,11 +48,11 @@ describe('Create a new patient', () => {
                         password: Cypress.env('password')
 
                     },
-                    body: updatePatientFixture
+                    body: externalId
                 }).then((patientUpdateResponse) => {
                     expect(patientUpdateResponse.status).to.eql(200)
                     expect(patientUpdateResponse.body).has.property('id').to.eql(patientId)
-                    expect(patientUpdateResponse.body).has.property('external_id').to.eql(updatePatientFixture.external_id)
+                    expect(patientUpdateResponse.body).has.property('external_id').to.eql(externalId.external_id)
                 });
             });
         });
