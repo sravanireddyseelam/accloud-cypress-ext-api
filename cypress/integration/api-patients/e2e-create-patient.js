@@ -1,58 +1,57 @@
-const { externalId, patient } = require('../../store/store');
+const { externalId, patient } = require("../../store/store");
 
-describe('Create a new patient', () => {
-    it('Creates a new patient', () => {
-        var patientId = patientId
+describe("Create a new patient", () => {
+    it("Creates a new patient", () => {
         // Creates a new patient using POST /clients Ext API
         cy.request({
-            method: 'POST',
-            url: 'ext/api/v2/patients/clients',
+            method: "POST",
+            url: "ext/api/v2/patients/clients",
             auth: {
-                username: Cypress.env('username'),
-                password: Cypress.env('password')
+                username: Cypress.env("username"),
+                password: Cypress.env("password")
             },
             body: patient 
         }).then((patientCreationResponse) => {
             expect(patientCreationResponse.status).to.eql(201);
-            expect(patientCreationResponse.body).has.property('id');
+            expect(patientCreationResponse.body).has.property("id");
         }).then((patientCreationResponse) => {
-            var patientId = patientCreationResponse.body.id;
+            let patientId = patientCreationResponse.body.id;
             cy.log("patient_id is " +  patientId);
-            var patientId = patientCreationResponse.body.id;
+            patientId = patientCreationResponse.body.id;
             // Fetches the newly created patient using GET /clients/{client_id} Ext API
             cy.request({
-                method: 'GET',
-                url: 'ext/api/v2/patients/clients/'+patientId,
+                method: "GET",
+                url: "ext/api/v2/patients/clients/"+patientId,
                 auth: {
-                    username: Cypress.env('username'),
-                    password: Cypress.env('password')
+                    username: Cypress.env("username"),
+                    password: Cypress.env("password")
                 },
             }).then((patientResponse) => {
                 expect(patientResponse.status).to.eql(200);
-                expect(patientResponse.body).has.property('id').to.eql(patientId);
-                expect(patientResponse.body).has.property('external_id');
+                expect(patientResponse.body).has.property("id").to.eql(patientId);
+                expect(patientResponse.body).has.property("external_id");
             
             }).then((patientResponse) => {
-                var patientExternalId = patientResponse.body.external_id;
+                let patientExternalId = patientResponse.body.external_id;
                 cy.log("patient_id is " +  patientExternalId);
             }).then((patientResponse) => {
 
-                var patientId = patientResponse.body.id;
+                let patientId = patientResponse.body.id;
 
                 // Updates the newly created patient using PUT /clients/{client_id} Ext API
                 cy.request({
-                    method: 'PUT',
-                    url: `ext/api/v2/patients/clients/`+patientId,
+                    method: "PUT",
+                    url: "ext/api/v2/patients/clients/"+patientId,
                     auth: {
-                        username: Cypress.env('username'),
-                        password: Cypress.env('password')
+                        username: Cypress.env("username"),
+                        password: Cypress.env("password")
 
                     },
                     body: externalId
                 }).then((patientUpdateResponse) => {
-                    expect(patientUpdateResponse.status).to.eql(200)
-                    expect(patientUpdateResponse.body).has.property('id').to.eql(patientId)
-                    expect(patientUpdateResponse.body).has.property('external_id').to.eql(externalId.external_id)
+                    expect(patientUpdateResponse.status).to.eql(200);
+                    expect(patientUpdateResponse.body).has.property("id").to.eql(patientId);
+                    expect(patientUpdateResponse.body).has.property("external_id").to.eql(externalId.external_id);
                 });
             });
         });
