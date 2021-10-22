@@ -4,9 +4,9 @@
   "description": "E2E Ext API Automation",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --ext .js",
+    "lint:check": "eslint --ext .js",
     "lint:fix": "npm run lint -- --fix",
-    "cypress:ui": "npx cypress open"
+    "cypress:start": "npx cypress open"
   },
   "author": "Team Penguins",
   "license": "ISC",
