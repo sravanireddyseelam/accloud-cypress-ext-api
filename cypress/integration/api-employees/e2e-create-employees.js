@@ -1,9 +1,5 @@
-/// <reference types ="Cypress" />
-
-
 const createEmployeeFixture = require('../../fixtures/createEmployee.json')
 const updateEmployeeFixture = require('../../fixtures/updateEmployee.json')
-
 
 describe('Create a new employee', ()=>{
 

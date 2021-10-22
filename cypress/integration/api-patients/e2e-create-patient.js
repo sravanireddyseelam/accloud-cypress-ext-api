@@ -1,9 +1,5 @@
-/// <reference types ="Cypress" />
-
-
 const createPatientFixture = require('../../fixtures/createPatient.json')
 const updatePatientFixture = require('../../fixtures/updatePatient.json')
-
 
 describe('Create a new patient', ()=>{
 

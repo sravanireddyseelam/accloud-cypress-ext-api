@@ -1,7 +1,4 @@
-/// <reference types ="Cypress" />
-
 describe('Get a list of patients', ()=>{
-
     it('Get a list of patients', ()=>{
         cy.request({
             method: 'GET',
