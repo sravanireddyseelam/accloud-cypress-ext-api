@@ -4,7 +4,7 @@ describe('Create a new employee', () => {
     it('Creates a new employee', () => {
         var employeeId = employeeId
         // Creates a new employee profile using POST /employees Ext API
-        cy.request({
+        cy.api({
             method: 'POST',
             url: 'ext/api/v2/employees/employees',
             auth: {
@@ -20,7 +20,7 @@ describe('Create a new employee', () => {
             var employeeId = employeeCreationResponse.body.id
             cy.log("employee_id is " +  employeeId) 
             // Fetches the newly created employee using GET /employees/{employee_id} Ext API
-            cy.request({
+            cy.api({
                 method: 'GET',
                 url: 'ext/api/v2/employees/employees/'+ employeeId,
                 auth: {
@@ -42,7 +42,7 @@ describe('Create a new employee', () => {
                 var employeeId = employeeGetResponse.body.id;
 
                 // Updates the newly created employee using PUT /employees/{employee_id} Ext API
-                cy.request({
+                cy.api({
                     method: 'PUT',
                     url: `ext/api/v2/employees/employees/`+ employeeId,
                     auth: {

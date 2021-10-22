@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "types": ["cypress"]
+    "types": ["cypress", "@bahmutov/cy-api"]
   },
   "include": ["./node_modules/cypress", "cypress/**/*.js"]
 }
