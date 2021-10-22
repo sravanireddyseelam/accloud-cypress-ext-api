@@ -1,2 +1,3 @@
-cypress.json
+# Files we want to ignore & not version control
 node_modules
+cypress/videos/

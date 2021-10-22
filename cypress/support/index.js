@@ -14,7 +14,7 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
-import '@bahmutov/cy-api/support'
+import "./commands";
+import "@bahmutov/cy-api/support";
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

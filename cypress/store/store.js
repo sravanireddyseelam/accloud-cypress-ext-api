@@ -1,4 +1,4 @@
-const faker = require('faker');
+const faker = require("faker");
 
 const employee = {
   demographics: {
@@ -6,7 +6,7 @@ const employee = {
     last_name: faker.name.lastName(),
     email: faker.internet.email(),
     salutation: "Mr.",
-    gender: 'M',
+    gender: "M",
   },
   max_weekly_capacity: "24.5",
   min_weekly_capacity: "10",
@@ -22,7 +22,7 @@ const externalId = {
 const patient = {
   demographics: {
       first_name: faker.name.firstName(),
-      gender: 'M',
+      gender: "M",
       last_name: faker.name.lastName(),
   },
   timezone: faker.address.timezone
