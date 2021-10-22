@@ -4,7 +4,7 @@
 const createEmployeeFixture = require('../../fixtures/createEmployee.json')
 const updateEmployeeFixture = require('../../fixtures/updateEmployee.json')
 
-
+/// e2e test for Employee creation, fetch and update
 describe('Create a new employee', ()=>{
 
     it('Creates a new employee', ()=>{

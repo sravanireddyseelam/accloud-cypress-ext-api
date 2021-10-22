@@ -4,7 +4,7 @@
 const createPatientFixture = require('../../fixtures/createPatient.json')
 const updatePatientFixture = require('../../fixtures/updatePatient.json')
 
-
+/// e2e test for patient creation
 describe('Create a new patient', ()=>{
 
     it('Creates a new patient', ()=>{
