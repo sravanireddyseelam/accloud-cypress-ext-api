@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "es5",
+    "baseUrl": ".",
+    "types": ["cypress"],
+    "outDir": "build",
+  },
+  "include": ["**/*.*"]
+}
