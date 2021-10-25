@@ -1,10 +1,7 @@
 {
     "baseUrl": "",
     "env": {
-            "username": "",
-            "password": ""
-            }
-        
-    
-    
+        "username": "",
+        "password": ""
+    }
 }

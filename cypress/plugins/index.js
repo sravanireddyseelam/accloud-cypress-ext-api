@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/* eslint-disable no-unused-vars */
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //
@@ -22,4 +22,4 @@ const faker = require("faker");
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-}
+};
