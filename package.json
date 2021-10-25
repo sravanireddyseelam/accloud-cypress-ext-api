@@ -10,12 +10,10 @@
   },
   "author": "Team Penguins",
   "license": "ISC",
-  "dependencies": {
-    "@bahmutov/cy-api": "^1.6.0",
-    "eslint": "^8.1.0"
-  },
   "devDependencies": {
+    "@bahmutov/cy-api": "^1.6.0",
     "cypress": "^8.6.0",
+    "eslint": "^8.1.0",
     "faker": "^5.5.3"
   }
 }
